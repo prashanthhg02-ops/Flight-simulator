@@ -1,4 +1,3 @@
-# Flight-simulator
 # Skybound — Flight Simulator
 
 A lightweight, browser-based 2D flight simulator. Fly a Cessna-style aircraft through five checkpoints, then make a gentle landing on the runway.

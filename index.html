@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#081523">
+    <title>Skybound — Flight Simulator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="simulator">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Skybound home">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>SKYBOUND <small>FLIGHT SIMULATOR</small></span>
+        </a>
+        <div class="top-status"><span class="status-dot"></span> FLIGHT SESSION <span id="session-status">READY</span></div>
+        <button class="icon-button" id="sound-button" type="button" aria-label="Toggle sound" title="Toggle sound">♫</button>
+      </header>
+
+      <section class="flight-panel" aria-label="Flight simulator">
+        <div class="instrument-bar">
+          <div class="instrument">
+            <span class="instrument-label">AIRSPEED</span>
+            <span class="instrument-value"><strong id="speed-value">0</strong><small>KT</small></span>
+            <div class="meter"><span id="speed-meter"></span></div>
+          </div>
+          <div class="instrument">
+            <span class="instrument-label">ALTITUDE</span>
+            <span class="instrument-value"><strong id="altitude-value">0</strong><small>FT</small></span>
+            <div class="meter"><span id="altitude-meter"></span></div>
+          </div>
+          <div class="instrument">
+            <span class="instrument-label">VERTICAL SPEED</span>
+            <span class="instrument-value"><strong id="climb-value">0</strong><small>FPM</small></span>
+            <div class="meter"><span id="climb-meter"></span></div>
+          </div>
+          <div class="instrument throttle-instrument">
+            <span class="instrument-label">THROTTLE <strong id="throttle-value">62</strong>%</span>
+            <input id="throttle" type="range" min="0" max="100" value="62" aria-label="Throttle">
+          </div>
+        </div>
+
+        <div class="scene-wrap">
+          <canvas id="flight-scene" width="1000" height="560" aria-label="Side view of your aircraft in flight"></canvas>
+          <div class="scene-vignette" aria-hidden="true"></div>
+          <div class="scene-topline">
+            <div class="flight-tag"><span class="tag-icon">✈</span><span>CESSNA 172</span><span class="tag-divider">/</span><span id="heading-readout">HDG 090°</span></div>
+            <div class="flight-tag objective"><span class="target-icon">◎</span><span id="objective-readout">FLY THROUGH THE CHECKPOINTS</span></div>
+          </div>
+          <div class="reticle" aria-hidden="true"><span></span></div>
+          <div class="scene-bottomline">
+            <span id="distance-readout">DISTANCE 0.0 NM</span>
+            <span id="checkpoint-readout">CHECKPOINTS 0 / 5</span>
+          </div>
+          <div class="overlay" id="start-overlay">
+            <div class="overlay-card">
+              <span class="eyebrow">YOUR FLIGHT BEGINS HERE</span>
+              <h1>Find your <em>sky.</em></h1>
+              <p>Take the controls, fly through all five rings, then bring your aircraft down gently on the runway.</p>
+              <button class="primary-button" id="start-button" type="button">START FLIGHT <span aria-hidden="true">↗</span></button>
+              <span class="overlay-hint">W / ↑ PITCH UP &nbsp;·&nbsp; S / ↓ PITCH DOWN &nbsp;·&nbsp; A / D THROTTLE</span>
+            </div>
+          </div>
+          <div class="overlay hidden" id="end-overlay">
+            <div class="overlay-card">
+              <span class="eyebrow" id="end-eyebrow">FLIGHT COMPLETE</span>
+              <h2 id="end-title">Touchdown.</h2>
+              <p id="end-message">A smooth landing. Nicely flown.</p>
+              <button class="primary-button" id="restart-button" type="button">FLY AGAIN <span aria-hidden="true">↻</span></button>
+            </div>
+          </div>
+        </div>
+        <footer class="flight-footer">
+          <div class="control-hint"><kbd>W</kbd><kbd>S</kbd> PITCH <span class="hint-separator">/</span><kbd>A</kbd><kbd>D</kbd> THROTTLE <span class="hint-separator">/</span><kbd>SPACE</kbd> LEVEL WINGS <span class="hint-separator">/</span><kbd>P</kbd> PAUSE</div>
+          <div class="wind"><span class="wind-icon">↗</span> WIND <strong>NW 04 KT</strong></div>
+        </footer>
+      </section>
+      <p class="page-note">A LITTLE LESS GROUND. A LITTLE MORE SKY.</p>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
